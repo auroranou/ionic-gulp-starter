@@ -40,7 +40,7 @@ Install the [ng-annotate plugin](https://www.npmjs.com/package/gulp-ng-annotate/
 
 In `index.html`, add the `ng-strict-di` directive to the `ng-app` body element in order to prevent dependency injection from wreaking havoc ([source](http://www.joshmorony.com/how-to-minify-an-ionic-application-for-production/)).
 
-### Linting with `eslint-plugin-angular`
+### `eslint`
 
 ```
 npm install eslint --save-dev
