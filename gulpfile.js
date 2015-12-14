@@ -6,12 +6,15 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var ngAnnotate = require('gulp-ng-annotate');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  templates: ['./www/templates/**/*.html'],
+  js: ['./www/js/**/*.js']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'annotate']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -28,6 +31,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js, ['annotate']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -48,4 +52,11 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('annotate', function(done) {
+  gulp.src('./www/js/**/*.js')
+  .pipe(ngAnnotate({single_quotes: true}))
+  .pipe(gulp.dest('./www/dist/js'))
+  .on('end', done);
 });
