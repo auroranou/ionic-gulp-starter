@@ -20,13 +20,13 @@ angular.module('starter')
   })
 
   .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
+    url: '/browse',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/browse.html'
       }
-    })
+    }
+  })
 
   .state('app.playlists', {
     url: '/playlists',
@@ -46,7 +46,7 @@ angular.module('starter')
         controller: 'PlaylistCtrl'
       }
     }
-  })
+  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists')
+  $urlRouterProvider.otherwise('/app/playlists');
 });
