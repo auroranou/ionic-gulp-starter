@@ -1,9 +1,9 @@
 {
   "name": "ionic-test",
   "app_id": "",
+  "documentRoot": "src",
   "gulpStartupTasks": [
     "sass",
-    "lint",
     "watch"
   ],
   "watchPatterns": [
